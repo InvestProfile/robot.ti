@@ -12,6 +12,8 @@ const apiSB = new OpenAPI({ apiURL: sandboxApiURL, secretToken: sandboxToken, so
 
 const ticker = 'AVP'; //AAPL
 
+console.log((process.env.TOKEN===undefined && process.env.SANDBOX_TOKEN===undefined)?'TOKENs it works':'TOKENs does not it works');
+
 !(async function run() {
     await apiSB.sandboxClear();
     const { figi } = await api.searchOne({ ticker: ticker });
