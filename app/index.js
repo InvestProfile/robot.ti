@@ -10,7 +10,7 @@ const api = new OpenAPI({ apiURL: apiURL, secretToken: secretToken, socketURL })
 const apiSB = new OpenAPI({ apiURL: sandboxApiURL, secretToken: sandboxToken, socketURL });
 
 
-const ticker = 'AVP'; //AAPL
+const ticker = 'AMD'; //AAPL
 
 console.log((process.env.TOKEN===undefined && process.env.SANDBOX_TOKEN===undefined)?'TOKENs it works':'TOKENs does not it works');
 
@@ -43,9 +43,10 @@ console.log((process.env.TOKEN===undefined && process.env.SANDBOX_TOKEN===undefi
             }) // Получаем свечи за конкретный промежуток времени.
         );*/
 
-   /* api.orderbook({ figi, depth: 10 }, (x) => {
+   console.log('-----orderbook streem -----')
+   api.orderbook({ figi, depth: 10 }, (x) => {
         console.log(x.bids);
-    });
+    });/*
     api.candle({ figi }, (x) => {
         console.log(x.h);
     });*/
