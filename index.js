@@ -9,7 +9,7 @@ app.use(express.urlencoded({ extended: true }))
 app.use('/user', userController)
 
 app.get('/', (req, res) => {
-    res.json({
+    res.send({
         title: 'Hello, world!',
         content: 'How are you?'
     })
