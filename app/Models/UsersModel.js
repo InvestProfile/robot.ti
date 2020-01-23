@@ -1,5 +1,5 @@
 
-exports.getUser = function (req, res) {
-    res.send('getUser')
+exports.getUser = () => {
+    return 'djopus'
 };
 
