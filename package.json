@@ -11,6 +11,7 @@
   "license": "ISC",
   "dependencies": {
     "@tinkoff/invest-openapi-js-sdk": "^1.1.0",
+    "brain.js": "^2.0.0-alpha.12",
     "express": "^4.17.1"
   }
 }

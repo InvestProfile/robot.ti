@@ -1,5 +1,8 @@
 
 exports.getUser = () => {
-    return 'djopus'
+    return {
+        name: 'djopus',
+        phone: '+7(911)0070108'
+    }
 };
 
