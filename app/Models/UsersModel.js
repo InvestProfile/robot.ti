@@ -1,4 +1,3 @@
-
 exports.getUser = () => {
     return {
         name: 'djopus',
