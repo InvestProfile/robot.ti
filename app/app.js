@@ -1,8 +1,8 @@
 const express = require('express');
-const indexController = require('./Controllers/IndexController');
-const glassController = require('./Controllers/GlassController');
-const userController = require('./Controllers/UserController');
-const mlController = require('./Controllers/MLController');
+const indexController = require('./Controllers/Index.Controller');
+const glassController = require('./Controllers/Glass.Controller');
+const userController = require('./Controllers/User.Controller');
+const mlController = require('./Controllers/ML.Controller');
 
 const app = express();
 

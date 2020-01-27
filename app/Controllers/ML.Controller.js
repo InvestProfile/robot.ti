@@ -1,11 +1,11 @@
 const express = require('express');
-const glassModel = require('../Models/GlassModel');
 const router = express.Router();
+const sigmoidModel = require('../Models/Sigmoid.Model');
 
 router.get('/', (req, res) => {
     res.send({
-        glass: 'glass',
-        getGlassModel: glassModel.getGlass()
+        ml: 'ml',
+        sigmoid: sigmoidModel.getSigmoid()
     })
 });
 
