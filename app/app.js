@@ -1,15 +1,16 @@
 const express = require('express');
-const indexController = require('./Controllers/Index.Controller');
-const depthController = require('./Controllers/Depth.Controller');
-const mlController = require('./Controllers/ML.Controller');
-
 const app = express();
+const port = process.env.PORT || 3000;
+global.catcher = fn => (...args) => fn(...args).catch(args[2]);
+const routes = require('./Controllers');
+
 
 app.use(express.urlencoded({ extended: true }));
-app.use('/', indexController);
-app.use('/depth', depthController);
-app.use('/ml', mlController);
+app.use(routes);
 
-const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`App listening on port ${port}`));
 
+process.on('unhandledRejection', err => {
+    console.error('unhandledRejection:', err.message);
+    console.error(err);
+});
