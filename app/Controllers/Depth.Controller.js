@@ -2,10 +2,10 @@ const express = require('express');
 const depthModel = require('../Models/Depth.Model');
 const router = express.Router();
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     res.send({
         depth: 'Depth',
-        getDepthModel: depthModel.getDepth()
+        getDepthModel: await depthModel.getDepth()
     })
 });
 
