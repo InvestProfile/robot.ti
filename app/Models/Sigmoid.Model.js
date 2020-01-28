@@ -11,12 +11,14 @@ exports.getSigmoid = () => {
 
     const net = new brain.NeuralNetwork(config);
 
-    net.train([
+    const input = [
         { input: [0, 0], output: [0] },
         { input: [0, 1], output: [1] },
         { input: [1, 0], output: [1] },
         { input: [1, 1], output: [0] },
-    ]);
+    ]
+
+    net.train(input);
 
     const output = net.run([0, 1]); // [0.987]
 
@@ -24,8 +26,7 @@ exports.getSigmoid = () => {
     console.log(output);
 
     return {
-        name: 'djopus',
-        phone: '+7(911)0070108',
+        input,
         output
     }
 };

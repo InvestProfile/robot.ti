@@ -1,11 +1,11 @@
 const express = require('express');
-const glassModel = require('../Models/Glass.Model');
+const depthModel = require('../Models/Depth.Model');
 const router = express.Router();
 
 router.get('/', (req, res) => {
     res.send({
-        glass: 'glass',
-        getGlassModel: glassModel.getGlass()
+        depth: 'Depth',
+        getDepthModel: depthModel.getDepth()
     })
 });
 
