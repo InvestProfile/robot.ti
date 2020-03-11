@@ -1,8 +1,14 @@
 {
   "name": "robot.ti",
-  "version": "1.0.0",
+  "version": "1.0.1",
+  "private": true,
   "description": "robot.ti",
   "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/InvestProfile/robot.ti.git",
+    "private": true
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node index.js"
