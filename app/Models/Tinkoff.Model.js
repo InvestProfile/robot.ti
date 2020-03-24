@@ -12,12 +12,40 @@ const checkAPI = async (connectAPI) => {
 };
 
 
+const govno = async (api, ticker) => {
+
+    const { figi } = await api.searchOne({ ticker: ticker });
+    console.log('В портфеле: ');
+    console.log(await api.instrumentPortfolio({ figi }));
+
+    console.log('Получаем стакан по ' + ticker + ': ');
+    const orderbookGet = await api.orderbookGet({ figi, depth: 1 });
+    console.log("figi: " + orderbookGet.figi);
+    console.log("depth: " + orderbookGet.depth);
+    console.log("tradeStatus: " + orderbookGet.tradeStatus);
+    console.log("minPriceIncrement: " + orderbookGet.minPriceIncrement);
+    console.log("lastPrice: " + orderbookGet.lastPrice);
+    console.log("closePrice: " + orderbookGet.closePrice);
+    console.log("limitUp: " + orderbookGet.limitUp);
+    console.log("limitDown: " + orderbookGet.limitDown);
+    console.log("bids: " + orderbookGet.bids);
+    console.log("asks: " + orderbookGet.asks);
+
+};
+
+
 const trade = async (api, settings, i) => {
-    console.log('trade: ' + i);
-    if (settings.mode == '') {}
-    else {
-        await api.sandboxClear();
+    console.log('START TRADE: ' + i);
+
+    if (settings.mode == '') {
+
     }
+    else {
+        //await api.sandboxClear();
+        await govno(api, settings.ticker)
+    }
+
+    console.log('END TRADE: ' + i + '\n ______________________________________________________________')
 };
 
 
@@ -56,7 +84,8 @@ const start = async (settings, api) => {
     apiURL: 'https://api-invest.tinkoff.ru/openapi',
     secretToken: process.env.TOKEN,  // токен для боевого api
     sandboxApiURL: 'https://api-invest.tinkoff.ru/openapi/sandbox',
-    sandboxToken: process.env.SANDBOX_TOKEN // токен для сандбокса
+    sandboxToken: process.env.SANDBOX_TOKEN, // токен для сандбокса
+    ticker: 'AMD' //AAPL
 });
 
 
