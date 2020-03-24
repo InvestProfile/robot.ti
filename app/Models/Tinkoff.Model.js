@@ -10,20 +10,21 @@ const checkAPI = async (api) => {
 };
 
 
-const trade = async (api, i) => {
+const trade = async (api, settings, i) => {
     console.log('trade: ' + i);
-    await api.sandboxClear();
-}
-
-
-const start = async (interval, api) => {
-
-    (timer = (i) => {setInterval(async () => await trade(api, i++), interval)})(1);
-
+    if (settings.mode == '') {}
+    else {
+        await api.sandboxClear();
+    }
 };
 
 
-(async (mode, interval) => {
+const start = async (settings, api) => {
+    (timer = (i) => {setInterval(async () => await trade(api, settings, i++), settings.interval)})(1);
+};
+
+
+(async (settings) => {
 
     const connectAPI = {
         api: {
@@ -40,14 +41,17 @@ const start = async (interval, api) => {
 
     const socketURL = 'wss://api-invest.tinkoff.ru/openapi/md/v1/md-openapi/ws';
 
-    switch (mode) {
-        case '': {await start(interval, new OpenAPI({ apiURL: connectAPI.api.apiURL, secretToken: connectAPI.api.secretToken, socketURL }));}
-        case "sandbox": {await start(interval, new OpenAPI({ apiURL: connectAPI.apiSandbox.sandboxApiURL, secretToken: connectAPI.apiSandbox.sandboxToken, socketURL }));}
+    switch (settings.mode) {
+        case '': {await start(settings, new OpenAPI({ apiURL: connectAPI.api.apiURL, secretToken: connectAPI.api.secretToken, socketURL }));}
+        case "sandbox": {await start(settings, new OpenAPI({ apiURL: connectAPI.apiSandbox.sandboxApiURL, secretToken: connectAPI.apiSandbox.sandboxToken, socketURL }));}
     }
 
-    console.log('Tinkoff start, set mode: "' + mode + '", set interval: ' + interval);
+    console.log('Tinkoff start, set mode: "' + settings.mode + '", set interval: ' + settings.interval);
 
-})('sandbox', 1000);
+})({
+    mode: 'sandbox',
+    interval: 1000
+});
 
 
 
