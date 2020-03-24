@@ -20,7 +20,7 @@ exports.getSigmoid = () => {
 
     net.train(input);
 
-    const output = net.run([0, 1]); // [0.987]
+    const output = net.run([1, 0]); // [0.987]
 
 
     console.log(output);
