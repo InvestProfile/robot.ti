@@ -1,12 +1,14 @@
 
 const OpenAPI = require('@tinkoff/invest-openapi-js-sdk');
 
-const checkAPI = async (api) => {
+const checkAPI = async (connectAPI) => {
 
-    console.log((api.secretToken===undefined )?'TOKENs does not it works':'TOKENs it works');
-    console.log('secretToken: ' + api.secretToken);
+    console.log((connectAPI.api.secretToken===undefined && connectAPI.apiSandbox.sandboxToken===undefined)?'TOKENs does not it works':'TOKENs it works');
 
-    return ((api.secretToken===undefined )?500:200);
+    console.log('secretToken: ' + ((connectAPI.api.secretToken===undefined)?' unset':' set'));
+    console.log('sandboxToken: ' + ((connectAPI.apiSandbox.sandboxToken===undefined)?' unset':' set'));
+
+    return ((connectAPI.api.secretToken===undefined && connectAPI.apiSandbox.sandboxToken===undefined)?500:200);
 };
 
 
@@ -28,16 +30,16 @@ const start = async (settings, api) => {
 
     const connectAPI = {
         api: {
-            apiURL: 'https://api-invest.tinkoff.ru/openapi',
-            secretToken: process.env.TOKEN,  // токен для боевого api
+            apiURL: settings.apiURL,
+            secretToken: settings.secretToken
         },
         apiSandbox: {
-            sandboxApiURL: 'https://api-invest.tinkoff.ru/openapi/sandbox',
-            sandboxToken: process.env.SANDBOX_TOKEN // токен для сандбокса
+            sandboxApiURL: settings.sandboxApiURL,
+            sandboxToken: settings.sandboxToken
         },
     };
 
-    //checkAPI(api).then((result) => {console.log(result)});
+    checkAPI(connectAPI).then((result) => {console.log('CHECK TOKENs: ' + result)});
 
     const socketURL = 'wss://api-invest.tinkoff.ru/openapi/md/v1/md-openapi/ws';
 
@@ -46,11 +48,15 @@ const start = async (settings, api) => {
         case "sandbox": {await start(settings, new OpenAPI({ apiURL: connectAPI.apiSandbox.sandboxApiURL, secretToken: connectAPI.apiSandbox.sandboxToken, socketURL }));}
     }
 
-    console.log('Tinkoff start, set mode: "' + settings.mode + '", set interval: ' + settings.interval);
+    console.log('Tinkoff settings, set mode: "' + settings.mode + '", set interval: ' + settings.interval + '\n ______________________________________________________________');
 
 })({
     mode: 'sandbox',
-    interval: 1000
+    interval: 1000,
+    apiURL: 'https://api-invest.tinkoff.ru/openapi',
+    secretToken: process.env.TOKEN,  // токен для боевого api
+    sandboxApiURL: 'https://api-invest.tinkoff.ru/openapi/sandbox',
+    sandboxToken: process.env.SANDBOX_TOKEN // токен для сандбокса
 });
 
 

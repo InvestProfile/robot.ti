@@ -1,5 +1,5 @@
 
-const tinkoff = require('./Models/Tinkoff.Model');
+require('./Models/Tinkoff.Model');
 
 const indexController = require('./Controllers/Index.Controller');
 const mlController = require('./Controllers/ML.Controller');
