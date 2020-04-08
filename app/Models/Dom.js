@@ -109,7 +109,5 @@ exports.setDom = async (bids, asks, i) => {
 };
 
 exports.getDom = (id) => {
-    return {
-        dom: Doms[id]
-    }
+    return Doms[id]
 };
