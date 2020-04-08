@@ -15,7 +15,8 @@ exports.getSettings = () => {
         socketURL: 'wss://api-invest.tinkoff.ru/openapi/md/v1/md-openapi/ws',
         mode: settings.mode, //secret or sandbox
         interval: settings.interval,
-        ticker: settings.ticker //AAPL
+        ticker: settings.ticker, //AAPL
+        depth: settings.depth
     }
 };
 

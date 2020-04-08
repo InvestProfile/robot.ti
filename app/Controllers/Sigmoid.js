@@ -1,11 +1,11 @@
 const express = require('express');
 const router = express.Router();
-const sigmoidModel = require('../Models/Sigmoid');
+const Dom = require('../Models/Dom');
 
 router.get('/', (req, res) => {
     res.send({
-        url: 'sigmoid',
-        sigmoid: sigmoidModel.getSigmoid()
+        url: 'dom',
+        dom: Dom.getDom(0)
     })
 });
 
