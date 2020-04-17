@@ -17,10 +17,10 @@ module.exports = (sequelize, Sequelize) => {
         }
     });
 
-    Dom.hasMany(require('./bids.model')(sequelize, Sequelize));
-    Dom.hasMany(require("./asks.model")(sequelize, Sequelize));
+
+    Dom.hasMany(require('./bids.model')(sequelize, Sequelize), {foreignKey: 'id', targetKey: 'local_bids_id'});
+    Dom.hasMany(require("./asks.model")(sequelize, Sequelize), {foreignKey: 'id', targetKey: 'local_asks_id'});
 
     return Dom;
-
 
 };

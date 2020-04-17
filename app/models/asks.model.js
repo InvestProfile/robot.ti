@@ -1,10 +1,14 @@
 module.exports = (sequelize, Sequelize) => {
 
-    return sequelize.define("asks", {
+    const Asks =  sequelize.define("asks", {
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
+        },
+        dom_id: {
+            type: Sequelize.INTEGER,
+            foreignKey: true
         },
         hash: {
             type: Sequelize.STRING
@@ -19,5 +23,9 @@ module.exports = (sequelize, Sequelize) => {
             type: Sequelize.INTEGER
         }
     });
+
+    //Asks.belongsTo(require("./dom.model")(sequelize, Sequelize), {foreignKey: 'dom_id', targetKey: 'id'});
+
+    return Asks;
 
 };
