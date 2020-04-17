@@ -12,6 +12,9 @@
   "dependencies": {
     "@tinkoff/invest-openapi-js-sdk": "^1.1.0",
     "brain.js": "^2.0.0-alpha.12",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "md5": "^2.2.1",
+    "mysql2": "^2.1.0",
+    "sequelize": "^5.21.6"
   }
 }

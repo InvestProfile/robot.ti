@@ -1,5 +1,5 @@
 
-const Dom = require('./Dom');
+const Dom = require('./dom');
 
 exports.getFrame = async (settings, api, i) => {
 

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const sigmoidModel = require('../Models/Sigmoid');
+const sigmoidModel = require('../models/Sigmoid');
 
 router.get('/', (req, res) => {
     res.send({

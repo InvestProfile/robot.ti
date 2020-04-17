@@ -111,3 +111,13 @@ exports.setDom = async (bids, asks, i) => {
 exports.getDom = (id) => {
     return Doms[id]
 };
+
+
+
+
+
+
+
+
+
+
