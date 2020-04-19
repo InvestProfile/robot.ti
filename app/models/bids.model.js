@@ -1,6 +1,6 @@
 module.exports = (sequelize, Sequelize) => {
 
-    const Bids =  sequelize.define("bids", {
+    const Bid =  sequelize.define("Bid", {
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
@@ -24,8 +24,15 @@ module.exports = (sequelize, Sequelize) => {
         }
     });
 
-    //Bids.belongsTo(require("./dom.model")(sequelize, Sequelize), {foreignKey: 'dom_id', targetKey: 'id'});
+    Bid.associate = function({Dom}) {
+        this.belongsTo(Dom, {
+            foreignKey: 'domId',
+            as: 'dom'
+        });
+    };
 
-    return Bids;
+    //Bid.belongsTo(require("./dom.model")(sequelize, Sequelize), {foreignKey: 'dom_id', targetKey: 'id'});
+
+    return Bid;
 
 };

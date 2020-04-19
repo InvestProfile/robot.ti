@@ -1,15 +1,11 @@
 module.exports = (sequelize, Sequelize) => {
 
-    const Asks =  sequelize.define("asks", {
+    const Ask = sequelize.define("Ask", {
         id: {
             type: Sequelize.INTEGER,
             primaryKey: true,
             autoIncrement: true
         },
-        /*dom_id: {
-            type: Sequelize.INTEGER,
-            foreignKey: true
-        },*/
         hash: {
             type: Sequelize.STRING
         },
@@ -24,8 +20,15 @@ module.exports = (sequelize, Sequelize) => {
         }
     });
 
+    Ask.associate = function({Dom}) {
+        this.belongsTo(Dom, {
+            foreignKey: 'domId',
+            as: 'dom'
+        });
+    };
+
     //Asks.belongsTo(require("./dom.model")(sequelize, Sequelize), {foreignKey: 'dom_id', targetKey: 'id'});
 
-    return Asks;
+    return Ask;
 
 };
