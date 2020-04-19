@@ -20,10 +20,11 @@ db.sequelize = sequelize;
 
 db.uid = require("./uid.model")(sequelize, Sequelize);
 db.dom = require("./dom.model")(sequelize, Sequelize);
-//db.bids = require("./bids.model")(sequelize, Sequelize);
-//db.asks = require("./asks.model")(sequelize, Sequelize);
+db.bids = require("./bids.model")(sequelize, Sequelize);
+db.asks = require("./asks.model")(sequelize, Sequelize);
 
-
+db.dom.hasMany(require('./bids.model')(sequelize, Sequelize));
+db.dom.hasMany(require("./asks.model")(sequelize, Sequelize));
 
 //TODO разобраться с этим=)
 require('./dom');

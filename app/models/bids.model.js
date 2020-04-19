@@ -6,10 +6,10 @@ module.exports = (sequelize, Sequelize) => {
             primaryKey: true,
             autoIncrement: true
         },
-        dom_id: {
+        /*dom_id: {
             type: Sequelize.INTEGER,
             foreignKey: true
-        },
+        },*/
         hash: {
             type: Sequelize.STRING
         },

@@ -108,7 +108,7 @@ exports.setDom = async (bids, asks, i) => {
     Doms.push({id: i, bids: bids, asks: asks})
 };
 
-exports.getDom = (id) => {
+exports.getDomByID = (id) => {
     return Doms[id]
 };
 
