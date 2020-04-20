@@ -1,15 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const Doms = require('../huita/dom');
+const JsonDom = require('../huita/dom');
 const { Dom: DomController } = require('../models');
 
 // Get JsonDom by DomId
-router.get('/:id', async (req, res) => {
+//TODO убить этот метод
+router.get('/json/:id', async (req, res) => {
     res.send({
         url: 'dom',
         status: 200,
-        dom: Doms.getDomByID(req.params.id)
+        dom: JsonDom.getDomByID(req.params.id)
     })
+});
+// Get Dom by DomId
+router.get('/:id', async (req, res) => {
+    DomController.findOne({where: {id: req.params.id}}).then(dom => res.send({
+        url: 'dom',
+        status: 200,
+        dom
+    }))
 });
 // Get all Doms
 router.get('/', async (req, res) => {
