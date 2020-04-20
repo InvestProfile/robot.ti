@@ -1,18 +1,18 @@
 const express = require('express');
 const router = express.Router();
-const Dom = require('../models/dom');
-const DomModel = require('../models/dom.model');
+const Doms = require('../models/dom');
+const {Dom} = require('../models');
 
-router.get('/:id', (req, res) => {
+router.get('/:id', async (req, res) => {
 
 
     //console.log(DomModel().classMethods.getTest());
 
-    DomModel.create({hash: 'fdsfds', ticker: 'dfsdf'});
+    await Dom.create({hash: 'fdsfds', ticker: 'dfsdf'});
 
     res.send({
         url: 'dom',
-        dom: Dom.getDomByID(req.params.id)
+        dom: Doms.getDomByID(req.params.id)
     })
 });
 
