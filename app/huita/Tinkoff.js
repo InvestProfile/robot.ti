@@ -6,21 +6,6 @@ const Frame = require('./Frame');
 const Settings = require('./Settings');
 let settings = Settings.getSettings();
 
-const DB = require('./index');
-
-const express = require('express')
-const app = express()
-// Create a Author
-app.get('/bd', (req, res) => {
-    console.log(req.body)
-    DB.create(req.body)
-        .then(DB => res.json(DB))
-})
-
-
-
-
-
 const frame = async (api, i) => {
     console.log('++++++++++++++++++++++++++++++++ Start Frame: ' + i + ' ++++++++++++++++++++++++++++++++');
 
@@ -28,7 +13,6 @@ const frame = async (api, i) => {
 
     console.log('-------------------------------- End Frame: ' + i + ' --------------------------------')
 };
-
 
 const run = async (api) => {
     (timer = (i) => {setInterval(async () => await frame(api, i++), settings.interval)})(0);

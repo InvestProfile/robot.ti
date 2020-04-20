@@ -1,15 +1,11 @@
 const express = require('express');
 const router = express.Router();
+const sigmoidModel = require('../huita/Sigmoid');
 
 router.get('/', (req, res) => {
     res.send({
-        url: 'DB'
-    })
-});
-
-router.get('/:id', (req, res) => {
-    res.send({
-        url: 'DB'
+        model: 'sigmoid',
+        sigmoid: sigmoidModel.getSigmoid()
     })
 });
 

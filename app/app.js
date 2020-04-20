@@ -1,5 +1,5 @@
 
-require('./models/Tinkoff');
+require('./huita/Tinkoff');
 
 const express = require('express');
 const app = express();
@@ -14,9 +14,8 @@ db.sequelize.sync().then(()=> {
 //controllers
 app.use(express.urlencoded({ extended: true }));
 app.use('/', require('./controllers'));
-app.use('/sigmoid', require('./controllers/Sigmoid'));
-app.use('/dom', require('./controllers/Dom'));
-app.use('/db', require('./controllers/DB'));
+app.use('/sigmoid', require('./controllers/sigmoid.controller'));
+app.use('/dom', require('./controllers/dom.controller'));
 
 //HTTP-server
 app.listen(port, () => console.log(`App listening on port ${port}`));

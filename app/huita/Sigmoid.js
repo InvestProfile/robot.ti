@@ -1,6 +1,6 @@
 exports.getSigmoid = () => {
 
-    const brain = require('brain.js');
+    const brain = require('brain.js/src/index.js');
 
     const config = {
         binaryThresh: 0.5,

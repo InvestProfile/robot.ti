@@ -9,23 +9,8 @@ module.exports = (sequelize, Sequelize) => {
         hash: {
             type: Sequelize.STRING
         },
-        date: {
-            type: Sequelize.DATE
-        },
         ticker: {
             type: Sequelize.STRING
-        }
-    },
-    {
-        classMethods: {
-            getTest: () => {
-                return 'test';
-            }
-        },
-        instanceMethods: {
-            gettest2: () => {
-                return [this.hash, this.ticker].join(' ')
-            }
         }
     });
 
@@ -40,15 +25,6 @@ module.exports = (sequelize, Sequelize) => {
             as: 'bids'
         });
     };
-
-//Dom.build({hash: 'fdsfds', ticker: 'dfsdf'});
-
-    /*    Dom.associate = (models) => {
-            Dom.hasMany(models.asks, {
-                foreignKey: 'domId',
-                as: 'asks'
-            });
-        };*/
 
     return Dom;
 };

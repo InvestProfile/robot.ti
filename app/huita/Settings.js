@@ -3,7 +3,7 @@ exports.getSettings = () => {
 
     const fs = require('fs');
     const path = require('path');
-    const file = path.join(__dirname, '../data', 'Settings.json');
+    const file = path.join(__dirname, '.', 'Settings.json');
     const json = fs.readFileSync(file);
     const settings = JSON.parse(json);
 
