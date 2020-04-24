@@ -18,7 +18,7 @@ module.exports = (sequelize, Sequelize) => {
         ticker: {
             type: Sequelize.STRING
         },
-        data: {
+        orderBook: {
             type: Sequelize.JSON
         }
     });
