@@ -9,8 +9,20 @@ module.exports = (sequelize, Sequelize) => {
         hash: {
             type: Sequelize.STRING
         },
+        date: {
+            type: Sequelize.DATE
+        },
         ticker: {
             type: Sequelize.STRING
+        },
+        data: {
+            type: Sequelize.JSON/*,
+            get: () => {
+                return JSON.parse(this.getDataValue('value'));
+            },
+            set: (value) => {
+                this.setDataValue('value', JSON.stringify(value))
+            }*/
         }
     });
 

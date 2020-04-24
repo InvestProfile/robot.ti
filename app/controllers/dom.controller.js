@@ -4,7 +4,6 @@ const JsonDom = require('../huita/dom');
 const { Dom: DomController } = require('../models');
 
 // Get JsonDom by DomId
-//TODO убить этот метод
 router.get('/json/:id', async (req, res) => {
     res.send({
         url: 'dom',
@@ -12,6 +11,9 @@ router.get('/json/:id', async (req, res) => {
         dom: JsonDom.getDomByID(req.params.id)
     })
 });
+// Get JsonDom by DomId
+router.get('/json', JsonDom.getDom);
+
 // Get Dom by DomId
 router.get('/:id', async (req, res) => {
     DomController.findOne({where: {id: req.params.id}}).then(dom => res.send({
@@ -31,9 +33,7 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/', async (req, res) => {
-
     await DomController.create({hash: md5(Date.now()), date: Date.now(), ticker: 'AMD'});
-
     res.send({
         url: 'dom',
         status: 200
