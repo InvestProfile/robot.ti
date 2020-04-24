@@ -14,7 +14,6 @@ exports.getFrame = async (settings, api, i) => {
     console.log(await Dom.setOrderBook({OrderBook, ticker: settings.ticker, i}));
     console.log('________________________________ End OrderBook: ' + i + ' ________________________________\n');
 
-
     return {
         OrderBook
     }
