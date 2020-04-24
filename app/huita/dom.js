@@ -116,9 +116,11 @@ exports.setDom = async (bids, asks, ticker, i) => {
             hash: md5(Date.now()),
             date: Date.now(),
             ticker: ticker,
-            bids: [
+            bids: bids,
+            asks: asks
+            /*bids: [
                 {hash: md5(Date.now()), priceH: 'fff'}
-            ]
+            ]*/
         }
     );
     /*Dom.create(dom)
@@ -141,8 +143,8 @@ exports.setOrderBook = async (orderBook, iterator, ticker) => {
         hash: md5(Date.now()),
         date: Date.now(),
         iterator: iterator,
-        ticker: ticker//,
-        //orderBook: orderBook
+        ticker: ticker,
+        orderBook: orderBook
     })
 };
 

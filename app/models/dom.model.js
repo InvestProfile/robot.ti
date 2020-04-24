@@ -15,18 +15,15 @@ module.exports = (sequelize, Sequelize) => {
         ticker: {
             type: Sequelize.STRING
         },
-        data: {
-            type: Sequelize.JSON/*,
-            get: () => {
-                return JSON.parse(this.getDataValue('value'));
-            },
-            set: (value) => {
-                this.setDataValue('value', JSON.stringify(value))
-            }*/
+        asks: {
+            type: Sequelize.JSON
+        },
+        bids: {
+            type: Sequelize.JSON
         }
     });
 
-    Dom.associate = function({Ask, Bid}) {
+/*    Dom.associate = function({Ask, Bid}) {
         this.hasMany(Ask, {
             foreignKey: 'domId',
             as: 'asks'
@@ -36,7 +33,7 @@ module.exports = (sequelize, Sequelize) => {
             foreignKey: 'domId',
             as: 'bids'
         });
-    };
+    };*/
 
     return Dom;
 };
