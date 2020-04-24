@@ -111,18 +111,20 @@ const Doms = [{
 
 exports.setDom = async (bids, asks, ticker, i) => {
 
-    await Dom.create(
+
+
+/*    await Dom.create(
         {
             hash: md5(Date.now()),
             date: Date.now(),
             ticker: ticker,
             bids: bids,
             asks: asks
-            /*bids: [
+            /!*bids: [
                 {hash: md5(Date.now()), priceH: 'fff'}
-            ]*/
+            ]*!/
         }
-    );
+    );*/
     /*Dom.create(dom)
         .then(data => {
             res.send(data);
@@ -133,12 +135,15 @@ exports.setDom = async (bids, asks, ticker, i) => {
         });
     });*/
 
-    Doms.push({id: i, ticker: ticker, bids: bids, asks: asks})
+    Doms.push({id: i, ticker: ticker, bids: bids, asks: asks});
+    console.log(ticker);
+    console.log('ggg')
 
 };
 
 exports.setOrderBook = async (orderBook, iterator, ticker) => {
 
+    console.log(ticker);
     await OrderBook.create({
         hash: md5(Date.now()),
         date: Date.now(),
