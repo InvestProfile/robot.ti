@@ -2,5 +2,6 @@
   "mode": "sandbox",
   "interval": "1000",
   "ticker": "AMD",
-  "depth": 60
+  "depth": 2,
+  "scale": 1000000
 }

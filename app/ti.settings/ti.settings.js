@@ -3,7 +3,7 @@ exports.getSettings = () => {
 
     const fs = require('fs');
     const path = require('path');
-    const file = path.join(__dirname, '.', 'Settings.json');
+    const file = path.join(__dirname, '.', 'ti.settings.json');
     const json = fs.readFileSync(file);
     const settings = JSON.parse(json);
 
@@ -16,7 +16,8 @@ exports.getSettings = () => {
         mode: settings.mode, //secret or sandbox
         interval: settings.interval,
         ticker: settings.ticker, //AAPL
-        depth: settings.depth
+        depth: settings.depth,
+        scale: settings.scale
     }
 };
 

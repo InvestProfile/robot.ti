@@ -18,25 +18,40 @@ module.exports = (sequelize, Sequelize) => {
         ticker: {
             type: Sequelize.STRING
         },
-        asks: {
+        orderBookJSON: {
             type: Sequelize.JSON
         },
-        bids: {
+        figi: {
+            type: Sequelize.STRING
+        },
+        depth: {
+            type: Sequelize.INTEGER
+        },
+        tradeStatus: {
+            type: Sequelize.STRING
+        },
+        minPriceIncrement: {
+            type: Sequelize.INTEGER
+        },
+        lastPrice: {
+            type: Sequelize.INTEGER
+        },
+        closePrice: {
+            type: Sequelize.INTEGER
+        },
+        limitUp: {
+            type: Sequelize.INTEGER
+        },
+        limitDown: {
+            type: Sequelize.INTEGER
+        },
+        bidsListJSON: {
+            type: Sequelize.JSON
+        },
+        asksListJSON: {
             type: Sequelize.JSON
         }
     });
-
-/*    Dom.associate = function({Ask, Bid}) {
-        this.hasMany(Ask, {
-            foreignKey: 'domId',
-            as: 'asks'
-        });
-
-        this.hasMany(Bid, {
-            foreignKey: 'domId',
-            as: 'bids'
-        });
-    };*/
 
     return Dom;
 };

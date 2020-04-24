@@ -1,5 +1,5 @@
 
-require('./huita/Tinkoff');
+require('./services/Tinkoff');
 
 const express = require('express');
 const app = express();
