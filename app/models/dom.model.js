@@ -12,6 +12,9 @@ module.exports = (sequelize, Sequelize) => {
         date: {
             type: Sequelize.DATE
         },
+        iterator: {
+            type: Sequelize.INTEGER
+        },
         ticker: {
             type: Sequelize.STRING
         },

@@ -109,39 +109,24 @@ const Doms = [{
             { price: 49.62, quantity: 9 },
             { price: 49.64, quantity: 2 } ]}];
 
-exports.setDom = async (bids, asks, ticker, i) => {
+exports.setDom = async (bids, asks, ticker, iterator) => {
 
 
 
-/*    await Dom.create(
+    await Dom.create(
         {
             hash: md5(Date.now()),
             date: Date.now(),
+            iterator: iterator,
             ticker: ticker,
             bids: bids,
             asks: asks
-            /!*bids: [
-                {hash: md5(Date.now()), priceH: 'fff'}
-            ]*!/
         }
-    );*/
-    /*Dom.create(dom)
-        .then(data => {
-            res.send(data);
-        })
-        .catch(err => {
-        res.status(500).send({
-            message: err.message || "Some error occurred while creating the Tutorial."
-        });
-    });*/
-
-    Doms.push({id: i, ticker: ticker, bids: bids, asks: asks});
-    console.log(ticker);
-    console.log('ggg')
+    );
 
 };
 
-exports.setOrderBook = async (orderBook, iterator, ticker) => {
+exports.setOrderBook = async (orderBook, ticker, iterator) => {
 
     console.log(ticker);
     await OrderBook.create({
