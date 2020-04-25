@@ -9,7 +9,9 @@ let settings = Settings.getSettings();
 const frame = async (api, i) => {
     console.log('++++++++++++++++++++++++++++++++ Start Frame: ' + i + ' ++++++++++++++++++++++++++++++++');
 
-    console.log(await Frame.getFrame(settings, api, i));
+    for (let ticker=0; ticker<settings.ticker.length; ticker++) {
+        console.log(await Frame.getFrame(settings, api, i, settings.ticker[ticker]));
+    }
 
     console.log('-------------------------------- End Frame: ' + i + ' --------------------------------')
 };
