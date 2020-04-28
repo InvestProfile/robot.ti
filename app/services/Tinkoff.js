@@ -3,7 +3,7 @@ const OpenAPI = require('@tinkoff/invest-openapi-js-sdk');
 
 const Frame = require('./Frame');
 
-const Settings = require('../ti.settings/ti.settings');
+const Settings = require('./tinkoff/ti.settings/ti.settings');
 let settings = Settings.getSettings();
 
 const frame = async (api, i) => {

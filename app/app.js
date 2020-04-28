@@ -1,5 +1,5 @@
 
-require('./services/Tinkoff');
+require('./services/tinkoff/index');
 
 const express = require('express');
 const app = express();

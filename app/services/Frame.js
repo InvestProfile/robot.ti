@@ -9,8 +9,6 @@ exports.getFrame = async (settings, api, i, ticker) => {
     const OrderBook = await api.orderbookGet({ figi, depth: settings.depth });
     await Dom.setOrderBook(OrderBook, settings, i, ticker);
 
-    return {
-        OrderBook
-    }
+    return OrderBook
 
 };

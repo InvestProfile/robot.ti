@@ -1,7 +1,7 @@
 {
   "mode": "sandbox",
   "interval": "1000",
-  "ticker": ["AMD", "AAPL"],
+  "ticker": ["AMD", "AAPL", "CROX"],
   "depth": 60,
   "scale": 1000000
 }
