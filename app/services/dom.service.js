@@ -1,14 +1,16 @@
 
+const settings = require('./tinkoff/ti.settings/ti.settings').getSettings();
+
 const {Dom: DomService} = require('../models');
 const md5 = require('md5');
 
-exports.setOrderBook = async (orderBook, settings, iterator, ticker) => {
+exports.setOrderBook = async (orderBook, iterator, t) => {
 
     await DomService.create({
         hash: md5(Date.now()),
         date: Date.now(),
         iterator: iterator,
-        ticker: ticker,
+        ticker: settings.ticker[t],
         orderBookJSON: orderBook,
         figi: orderBook.figi,
         depth: orderBook.depth,
