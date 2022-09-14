@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node index.js"
+    "start": "cd app_open_api_by_ts && npx tsc && node index.js"
   },
   "author": "mil",
   "license": "ISC",
